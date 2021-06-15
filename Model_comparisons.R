@@ -17,7 +17,7 @@ test_bap <- glm(death ~ offset(1*(bun_bap + con + hr + age)),
 test_curb <- glm(death ~ offset(1*(con + bun_curb + rr + bp + age)),
                    data=test_data, x=TRUE, y=TRUE) 
 roc1 <- roc(test_bap$y, test_bap$linear.predictors)
-roc2 <- roc(test_bap$y, test_bap$linear.predictors)
+roc2 <- roc(test_curb$y, test_curb$linear.predictors)
 roc3 <- roc(YY, test_predict)
 plot(roc1, lty=1, legacy.axes = TRUE)
 plot(roc2, lty = 2, add = TRUE)
@@ -29,4 +29,7 @@ roc.test(roc2, roc3, method = "bootstrap", boot.n = 2000)
 # COmparison of ROCS in another methods
 library(fbroc)
 result.boot <- boot.paired.roc(test_bap$linear.predictors, test_predict, 
-                               test_bap$y, n.boot = 100)
+                               YY, n.boot = 100)
+length(test_bap$linear.predictors)
+length(test_predict)
+length(YY)
