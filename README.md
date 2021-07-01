@@ -2,7 +2,7 @@ The R scripts for "Prediction of In-hospital Death in Pneumonic COPD Exacerbatio
 "Main analysis" containts "External validation of BAP-65 and CURB-65", "Development of the XGBoost model", and "Model comparisons between CURB-65, BAP-65 and the XGBoost model"  
 
 <Grid search>  
-Optimal hyperparameters were searched fixing the value of eta = 0.1, subsample = 0.8, colsample_bytree = 0.8, gamma = 0, lambda = 1, and alpha = 0. Candidates of max_depth, and min_child_weight are summarized below. The area under the receiver operating characteristic curves was maximized when max_depth = 2, min_child_weight = 2, and the maximum number of trees = 39.   
+Optimal hyperparameters were searched to maximize the area under the receiver operating characteristic curves, fixing the value of eta = 0.1, subsample = 0.8, colsample_bytree = 0.8, gamma = 0, lambda = 1, and alpha = 0. Candidates of max_depth, and min_child_weight are summarized below. After fixing max_depth = 2 and min_child_weight = 2, we searched the optimal "maximum number of trees", which was 37. 
    
 Hyperparameters	Candidates  
 Eta 0.1  
